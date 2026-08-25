@@ -3,3 +3,6 @@ body {
   background-color: #da4e27f1;
   font-family: Georgia, serif;
 }
+
+.subtitle { color: rgb(0, 255, 64)}
+#page-title { font-size 48px; color:aqua}
