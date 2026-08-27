@@ -7,6 +7,7 @@ body {
 .subtitle { color: blue}
 .subtitle {
   border: 2px solid black;
+  padding: 20px;
 }
 #page-title { font-size: 48px; color:aqua}
 #red {font-size:medium; color:blue}
