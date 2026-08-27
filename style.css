@@ -13,7 +13,7 @@ body {
 }
 #page-title { font-size: 48px; color:aqua}
 #page-title {
-  padding: 900px;
+  padding-right: 900px;
   margin: auto;
 }
 #red {font-size:medium; color:blue}
