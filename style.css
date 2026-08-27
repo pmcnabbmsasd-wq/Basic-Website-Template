@@ -14,5 +14,6 @@ body {
 #page-title { font-size: 48px; color:aqua}
 #page-title {
   padding: 100px;
+  margin: auto;
 }
 #red {font-size:medium; color:blue}
