@@ -8,8 +8,8 @@ body {
 .subtitle {
   border: 2px solid black;
   padding: 20px;
-  margin: 40px;
-  width: 150px;
+  margin: auto;
+  width: 100px;
 }
 #page-title { font-size: 48px; color:aqua}
 #red {font-size:medium; color:blue}
