@@ -10,4 +10,14 @@
 <canvas id="gameCanvas" width="400" height="400"></canvas>
 
 </body>
+<script>
+    var canvas = document.getElementById("gameCanvas");
+    var ctx = canvas.getContext("2d");
+    var CELL = 20;
+    var snake = { x: 3, y: 4 };
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, 400, 400);
+    ctx.fillStyle = "blue";
+    ctx.fillRect(snake.x * CELL, snake.y * CELL, CELL, CELL);
+  </script>
 </html>
