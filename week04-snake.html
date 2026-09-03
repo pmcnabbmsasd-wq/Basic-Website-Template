@@ -13,6 +13,8 @@
 <script>
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
+    var dx = 20
+    var dy= 0
     var CELL = 20;
     var snake = { x: 3, y: 6 };
     ctx.fillStyle = "white";
@@ -32,6 +34,26 @@ function step() {
   if (snake.x > 380) {
     snake.x = 0;
   }
+ 
+  drawBoard();
+}
+ if (event.key === "ArrowUp") {
+    dx = 0;
+    dy = -20;
+  }
+  if (event.key === "ArrowDown") {
+    dx = 0;
+    dy = 20;
+  }
+
+function step() {
+  snake.x = snake.x + dx; 
+  snake.y = snake.y + dy; 
+ 
+  if (snake.x > 380) { snake.x = 0; }
+  if (snake.x < 0) { snake.x = 380; }
+  if (snake.y > 380) { snake.y = 0; }
+  if (snake.y < 0) { snake.y = 380; }
  
   drawBoard();
 }
