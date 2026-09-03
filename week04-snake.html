@@ -17,7 +17,26 @@
     var snake = { x: 3, y: 4 };
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, 400, 400);
-    ctx.fillStyle = "blue";
-    ctx.fillRect(snake.x * CELL, snake.y * CELL, CELL, CELL);
+    function drawBoard() {
+  ctx.fillStyle = "#1b1b1b";
+  ctx.fillRect(0, 0, 400, 400);
+ 
+  ctx.fillStyle = "#3ddc84";
+  ctx.fillRect(snake.x, snake.y, 20, 20);
+}
+ 
+setInterval(step, 120);
+function step() {
+  snake.x = snake.x + 20;
+ 
+  if (snake.x > 380) {
+    snake.x = 0;
+  }
+ 
+  drawBoard();
+}
+
+
+
   </script>
 </html>
