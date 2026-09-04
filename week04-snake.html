@@ -42,52 +42,37 @@
 
     // --- MAIN GAME LOOP ---
     function step() {
-      // 1. Move the snake head
-      snake.x = snake.x + dx;
-      snake.y = snake.y + dy;
-
-      // 2. Wrap around screen edges
-      if (snake.x > 380) { snake.x = 0; }
-      if (snake.x < 0) { snake.x = 380; }
-      if (snake.y > 380) { snake.y = 0; }
-      if (snake.y < 0) { snake.y = 380; }
-
-      // 3. Track the body
-      body.push({ x: snake.x, y: snake.y });
-      while (body.length > snakeLength) {
-        body.shift();
-      }
-
-      // 4. Check for Apple Collision
-      if (
-        snake.x < apple.x + 20 &&
-        snake.x + 20 > apple.x &&
-        snake.y < apple.y + 20 &&
-        snake.y + 20 > apple.y
-      ) {
-        snakeLength = snakeLength + 1; 
-        apple.x = Math.floor(Math.random() * 20) * 20;
-        apple.y = Math.floor(Math.random() * 20) * 20;
-      }
-
-      // 5. Check for Game Over (Self Collision)
-      for (var i = 0; i < body.length - 1; i++) {
-        if (body[i].x === snake.x && body[i].y === snake.y) {
-          // INSTEAD of stopping the game, we reset all variables to their starting state
-          snake = { x: 20, y: 20 };
-          dx = 20;
-          dy = 0;
-          body = [];
-          snakeLength = 3;
-          apple = { x: 200, y: 200 };
-          
-          return; // Exit this frame early so it starts clean on the next tick
-        }
-      }
-
-      // 6. Draw the updated state to the screen
-      drawBoard();
+  snake.x = snake.x + dx;
+  snake.y = snake.y + dy;
+ 
+  if (snake.x > 380) { snake.x = 0; }
+  if (snake.x < 0) { snake.x = 380; }
+  if (snake.y > 380) { snake.y = 0; }
+  if (snake.y < 0) { snake.y = 380; }
+ 
+  for (var i = 0; i < body.length; i++) {
+    if (body[i].x === snake.x && body[i].y === snake.y) {
+      clearInterval(timer);
+      alert("Game over");
+      return;
     }
+  }
+ 
+  body.push({ x: snake.x, y: snake.y });
+ 
+  while (body.length > snakeLength) {
+    body.shift();
+  }
+ 
+  if (snake.x === apple.x && snake.y === apple.y) {
+    snakeLength = snakeLength + 1;
+    apple.x = Math.floor(Math.random() * 20) * 20;
+    apple.y = Math.floor(Math.random() * 20) * 20;
+  }
+ 
+  drawBoard();
+}
+
 
     // --- CONTROLS ---
     document.addEventListener("keydown", function(event) {
